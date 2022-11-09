@@ -1,14 +1,7 @@
 import React from "react";
 
-const circle = () => {
-  return (
-    <div className="circleConatiner">
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-    </div>
-  );
+const circle = ({ clicks }) => {
+  return <div className="circle" onClick={clicks}></div>;
 };
 
 export default circle;

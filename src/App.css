@@ -1,0 +1,74 @@
+/* App component css  */
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: none;
+  background-image: url("C:/Users/hasan/Desktop/Helsinki_business_college_task/React_margit/speedGame_react/src/assets/images/football-clipart.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.circleConatiner {
+  margin: 3rem 0;
+  display: flex;
+}
+
+/* App component css  */
+
+.conatiner {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button component css  */
+.play {
+  width: 150px;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: orange;
+}
+
+.play:hover {
+  background-color: rgb(201, 157, 75);
+}
+
+/* Overlay component css  */
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  background: rgba(255, 165, 0, 0.73);
+  justify-content: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 120px;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  font-size: 43px;
+}

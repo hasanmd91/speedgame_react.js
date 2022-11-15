@@ -4,61 +4,63 @@ import Button from "./components/Button";
 import Overlay from "./components/Overlay";
 import "./App.css";
 
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export default class App extends Component {
   state = {
     circles: [1, 2, 3, 4],
     overlay: false,
     score: 0,
-    count: 0,
-    rounds: 0,
-    gameIsOn: false,
-    isActive: false,
-    activeNum: 0,
-    nextActiveNum: "",
+    current: 0,
+    pace: 1000,
   };
 
-  gameCircle = () => {
-    return (
-      <div className="circleConatiner">
-        {this.state.circles.map((ele, id) => (
-          <Circle
-            clicks={() => this.circleHandler(id)}
-            isActive={this.state.isActive}
-          />
-        ))}{" "}
-      </div>
-    );
+  timer;
+
+  clickHandler = (i) => {
+    this.setState({ score: this.state.score + 3 });
   };
 
-  randomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-  newCircle = (activeNum) => {
-    let nextActiveNum = this.randomNumber(0, 3);
-    if (activeNum !== nextActiveNum) {
-      return nextActiveNum;
-    } else {
-      return this.newCircle(activeNum);
-    }
+  nextCirlce = () => {
+    let nextActive;
+
+    do {
+      nextActive = randomNumber(0, 3);
+    } while (nextActive === this.state.current);
+
+    this.setState({ current: nextActive, pace: this.state.pace });
+    console.log(this.state.current);
+    this.timer = setTimeout(this.nextCirlce, this.state.pace);
   };
 
-  gamehandeler = () => {
-    this.setState({ gameIsOn: true });
-    let nextActiveNum = this.newCircle(this.state.activeNum);
-    console.log(nextActiveNum);
+  starthandeler = () => {
+    this.nextCirlce();
   };
 
-  circleHandler = (id) => {
-    console.log(id);
+  stopHandeler = () => {
+    clearTimeout(this.timer);
   };
 
   render() {
     return (
       <div className="conatiner">
         <h1>Lets Try to score some goals</h1>
-        {this.gameCircle()}
-        <Button text={"start"} startgame={this.gamehandeler} />
-        {this.state.overlay && <Overlay />}
+        <div className="circleConatiner">
+          {this.state.circles.map((ele, i) => (
+            <Circle
+              clicks={() => this.clickHandler(i)}
+              key={i}
+              id={i}
+              active={this.state.current === i}
+            />
+          ))}{" "}
+        </div>
+        <div>
+          <Button text={"start"} startgame={this.starthandeler} />
+          <Button text={"End"} startgame={this.stopHandeler} />
+        </div>
       </div>
     );
   }

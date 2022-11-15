@@ -37,6 +37,7 @@
 
 /* Button component css  */
 .play {
+  margin: 10px;
   width: 150px;
   padding: 1rem;
   border-radius: 5px;

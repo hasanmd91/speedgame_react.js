@@ -1,11 +1,10 @@
 import React from "react";
 
-const circle = ({ clicks, isActive }) => {
+const circle = ({ clicks, active, id }) => {
   return (
-    <div
-      className={`circle ${isActive ? "isactive" : ""}`}
-      onClick={clicks}
-    ></div>
+    <div className={`circle ${active ? "isactive" : ""}`} onClick={clicks}>
+      <p>{id}</p>
+    </div>
   );
 };
 

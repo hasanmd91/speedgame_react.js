@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import Circle from "./components/Circle";
 import Button from "./components/Button";
 import Overlay from "./components/Overlay";
+import Click from "./assets/sounds/click.wav";
+import Gameover from "./assets/sounds/gameover.wav";
+import Start from "./assets/sounds/starter.wav";
 import "./App.css";
 
 const randomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+const click = new Audio(Click);
+const gameOver = new Audio(Gameover);
+const starts = new Audio(Start);
 
 export default class App extends Component {
   state = {
@@ -17,19 +24,23 @@ export default class App extends Component {
     pace: 1000,
     gameOver: false,
     rounds: 0,
+    gameisOn: false,
   };
 
   timer;
 
   clickHandler = (i) => {
-    if (this.state.current !== i) {
-      this.stopHandeler();
-      return;
-    } else {
-      this.setState({
-        score: this.state.score + 3,
-        rounds: 0,
-      });
+    if (this.state.gameisOn) {
+      if (this.state.current !== i) {
+        this.stopHandeler();
+        return;
+      } else {
+        click.play();
+        this.setState({
+          score: this.state.score + 3,
+          rounds: 0,
+        });
+      }
     }
   };
 
@@ -52,10 +63,13 @@ export default class App extends Component {
   };
 
   starthandeler = () => {
+    starts.play();
     this.nextCirlce();
+    this.setState({ gameisOn: true });
   };
 
   stopHandeler = () => {
+    gameOver.play();
     clearTimeout(this.timer);
     this.setState({ gameOver: !this.state.overlay });
   };

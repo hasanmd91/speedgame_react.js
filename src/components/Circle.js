@@ -1,7 +1,12 @@
 import React from "react";
 
-const circle = ({ clicks }) => {
-  return <div className="circle" onClick={clicks}></div>;
+const circle = ({ clicks, isActive }) => {
+  return (
+    <div
+      className={`circle ${isActive ? "isactive" : ""}`}
+      onClick={clicks}
+    ></div>
+  );
 };
 
 export default circle;

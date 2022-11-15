@@ -1,7 +1,11 @@
 import React from "react";
 
-const button = ({ text }) => {
-  return <button className="play">{text}</button>;
+const button = ({ text, startgame }) => {
+  return (
+    <button className="play" onClick={startgame}>
+      {text}
+    </button>
+  );
 };
 
 export default button;

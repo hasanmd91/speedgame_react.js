@@ -37,7 +37,7 @@ export default class App extends Component {
       } else {
         click.play();
         this.setState({
-          score: this.state.score + 3,
+          score: this.state.score + 1,
           rounds: 0,
         });
       }

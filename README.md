@@ -13,7 +13,7 @@
 
 ## Setup and usage
 
-Live page [here](https://reactspeedgame.netlify.app/)
+Live page [here](https://speedgamereactjs.netlify.app/)
 
 ## Screenshot
 

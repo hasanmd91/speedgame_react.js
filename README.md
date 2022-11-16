@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # Speed Game
 
 - click the ball as soon as it flash clicking the right ball will increase the score by one.
@@ -32,7 +33,4 @@ Live page [here](https://github.com/margittennosaar/markdown_study_materials)
 Hasan Md Abul
 
 - GitHub @margittennosaar
-- [LinkedIn](https://www.linkedin.com/in/margittennosaar/)
-=======
-
->>>>>>> df3c6afd6967f326ed72c4ac3edfae5661a8b64f
+- # [LinkedIn](https://www.linkedin.com/in/margittennosaar/)

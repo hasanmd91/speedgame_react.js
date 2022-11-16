@@ -27,7 +27,7 @@ export default class App extends Component {
     gameisOn: false,
   };
 
-  timer;
+  timer; // global variable to clear the timeout
 
   clickHandler = (i) => {
     if (this.state.gameisOn) {
@@ -93,8 +93,12 @@ export default class App extends Component {
           ))}{" "}
         </div>
         <div>
-          <Button text={"start"} startgame={this.starthandeler} />
-          <Button text={"End"} startgame={this.stopHandeler} />
+          {!this.state.gameisOn && (
+            <Button text={"start"} startgame={this.starthandeler} />
+          )}
+          {this.state.gameisOn && (
+            <Button text={"End"} startgame={this.stopHandeler} />
+          )}
         </div>
         {this.state.gameOver && (
           <Overlay close={this.closehandeler} score={this.state.score} />

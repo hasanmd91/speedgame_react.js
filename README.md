@@ -13,7 +13,7 @@
 
 ## Setup and usage
 
-Live page [here](https://github.com/margittennosaar/markdown_study_materials)
+Live page [here](https://reactspeedgame.netlify.app/)
 
 ## Screenshot
 

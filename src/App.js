@@ -25,6 +25,7 @@ export default class App extends Component {
     gameOver: false,
     rounds: 0,
     gameisOn: false,
+    message: "",
   };
 
   timer; // global variable to clear the timeout
@@ -72,8 +73,12 @@ export default class App extends Component {
     gameOver.play();
     clearTimeout(this.timer);
     this.setState({ gameOver: !this.state.overlay });
+    if (this.state.score < 5) {
+      this.setState({ message: "You need to practice more" });
+    } else if (this.state.score > 5) {
+      this.setState({ message: "Good job! keep it up " });
+    }
   };
-
   closehandeler = () => {
     window.location.reload();
   };
@@ -101,7 +106,11 @@ export default class App extends Component {
           )}
         </div>
         {this.state.gameOver && (
-          <Overlay close={this.closehandeler} score={this.state.score} />
+          <Overlay
+            close={this.closehandeler}
+            score={this.state.score}
+            message={this.state.message}
+          />
         )}
       </div>
     );

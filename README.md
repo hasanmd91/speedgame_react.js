@@ -18,6 +18,8 @@ Live page [here](https://reactspeedgame.netlify.app/)
 ## Screenshot
 
 <img src="src\assets\images\project.jpg"/>
+<img src="src\assets\images\Speed-Game (1).png "/>
+<img src="src\assets\images\Speed-Game.png" />
 
 ## Sources
 
